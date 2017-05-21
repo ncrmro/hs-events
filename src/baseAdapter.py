@@ -1,6 +1,5 @@
 from os.path import join, dirname
 
-import requests
 from dotenv import load_dotenv
 
 BASE_DIR = dirname(dirname(__file__))
@@ -16,10 +15,6 @@ class Client:
     def initialize(self):
         return self.api_key
 
-    def make_request(self, url):
-        payload = {'key': self.api_key}
-        request = requests.get(url, params=payload)
-        return request
 
     def construct_url(self, base_url, endpoint):
         data = {'base_url': base_url, 'endpoint': endpoint}
