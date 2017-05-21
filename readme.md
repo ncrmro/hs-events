@@ -20,6 +20,10 @@ Start the flask server
 ## Deployment
 Lamda
 
+Has issues with sqlite at the moment. Pg Support should work.
+
+Zappa needs your virtualenv set up correctly forwarning.
+
 `pip install awscli`
 
 `aws configure`
@@ -64,6 +68,9 @@ Your updated Zappa deployment is live!: https://09gi23fqn1.execute-api.us-east-1
 Check the url. For instance
 /api/groups will return the meetup groups for instance
 
+
+
+### GraphQL needs pg database at the moment.
 Graphql API is available at /graphql with graphiql support.
 
 Here is an example query
