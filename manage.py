@@ -1,8 +1,8 @@
 from flask_graphql import GraphQLView
 
-from src import app, MeetupAdapterClient, TeamUpClient, init_db, schema, db
+from src import app, MeetupClient, TeamUpClient, init_db, schema, db
 
-mup_client = MeetupAdapterClient()
+mup_client = MeetupClient()
 tup_client = TeamUpClient()
 
 

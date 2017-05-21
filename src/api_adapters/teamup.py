@@ -1,8 +1,10 @@
 import requests
+from src.adapter import BaseClientAdapter
 
-from src import Client, settings
+from src import settings
 
-class TeamUpClient(Client):
+
+class TeamUpClient(BaseClientAdapter):
     def __init__(self):
         api_key = settings.TEAMUP_API_KEY
         super().__init__(api_key)

@@ -1,8 +1,10 @@
 import requests
+from src.adapter import BaseClientAdapter
 
-from src import Client, settings
+from src import settings
 
-class MeetupAdapterClient(Client):
+
+class MeetupClient(BaseClientAdapter):
     def __init__(self):
         api_key = settings.MEETUP_API_KEY
         super().__init__(api_key)
@@ -18,4 +20,3 @@ class MeetupAdapterClient(Client):
         url = self.construct_url(self.base_url, '/find/groups')
         request = self.make_request(url)
         return request
-
