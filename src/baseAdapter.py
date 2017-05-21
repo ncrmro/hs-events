@@ -1,11 +1,5 @@
-from os.path import join, dirname
 
-from dotenv import load_dotenv
 
-BASE_DIR = dirname(dirname(__file__))
-
-dotenv_path = join(BASE_DIR, '.env')
-load_dotenv(dotenv_path)
 
 
 class Client:

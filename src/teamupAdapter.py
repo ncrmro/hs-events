@@ -22,7 +22,3 @@ class TeamUpClient(Client):
         request = self.make_request(url)
         return request
 
-
-client = TeamUpClient()
-
-print(client.get_access().text)

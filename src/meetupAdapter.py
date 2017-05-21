@@ -14,6 +14,7 @@ class MeetupAdapterClient(Client):
     def make_request(self, url):
         payload = {'key': self.api_key}
         request = requests.get(url, params=payload)
+        print(request)
         return request
 
     def get_group(self):
@@ -21,7 +22,3 @@ class MeetupAdapterClient(Client):
         request = self.make_request(url)
         return request
 
-
-client = MeetupAdapterClient()
-
-print(client.get_group().text)
