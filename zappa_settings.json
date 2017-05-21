@@ -1,6 +1,6 @@
 {
-  "dev": {
-    "project_name": "dev_sync_hs_events",
+  "sync_cronjob": {
+    "project_name": "dev_sync_hs_events_sync",
     "aws_region": "us-east-1",
     "profile_name": "default",
     "s3_bucket": "hs-events-dev",
@@ -10,6 +10,14 @@
         "expression": "rate(1 minute)"
       }
     ],
+    "use_precompiled_packages": true
+  },
+  "sync_api": {
+    "project_name": "dev_sync_hs_events_api",
+    "aws_region": "us-east-1",
+    "profile_name": "default",
+    "s3_bucket": "hs-events-dev",
+    "app_function": "mange.get_sync",
     "use_precompiled_packages": true
   }
 }

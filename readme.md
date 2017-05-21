@@ -33,20 +33,12 @@ AWS Secret Access Key: bar
 ...
 ```
 
-`zappa deploy dev`
+`zappa deploy sync_api`
 
-`zappa schedule dev`
+`zappa tail sync_api`
 
-`zappa tail dev`
+`zappa undeploy sync_api`
 
-Don't forget to unschedule dev!!!
-`zappa unschedule production`
-
-`zappa update dev`
-
-`zappa undeploy dev`
+`zappa update sync_api`
 
 `zappa deploy production`
-
-Schedule CloudWatch to run src.sync every 5 minutes.
-`zappa schedule prod`
