@@ -63,3 +63,18 @@ Your updated Zappa deployment is live!: https://09gi23fqn1.execute-api.us-east-1
 
 Check the url. For instance
 /api/groups will return the meetup groups for instance
+
+Graphql API is available at /graphql with graphiql support.
+
+Here is an example query
+'''
+{
+  allMeetupGroups{
+    edges{
+      node{
+        id
+        name
+      }
+    }
+  }
+}'''
