@@ -24,23 +24,3 @@ class Query(graphene.ObjectType):
 
 
 schema = graphene.Schema(query=Query, types=[MeetupGroup, TeamUpCalendar])
-
-default_query = '''
-{
-  allEmployees {
-    edges {
-      node {
-        id,
-        name,
-        department {
-          id,
-          name
-        },
-        role {
-          id,
-          name
-        }
-      }
-    }
-  }
-}'''.strip()
