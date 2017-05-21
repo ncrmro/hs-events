@@ -1,13 +1,10 @@
-import os
-
 import requests
 
-from src.baseAdapter import Client
-
+from src import Client, settings
 
 class MeetupAdapterClient(Client):
     def __init__(self):
-        api_key = os.environ.get("MEETUP_API_KEY")
+        api_key = settings.MEETUP_API_KEY
         super().__init__(api_key)
         self.base_url = 'https://api.meetup.com'
 
