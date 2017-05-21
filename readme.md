@@ -33,18 +33,20 @@ AWS Secret Access Key: bar
 ...
 ```
 
-`zappa deploy sync_api`
+`zappa deploy api`
 
-`zappa tail sync_api`
+`zappa tail api`
 
-`zappa undeploy sync_api`
+`zappa undeploy api`
 
-`zappa update sync_api`
+`zappa update api`
 
 `zappa deploy production`
 
+`zappa update api or deploy`
+
+
 ```
- zappa update sync_api
 (Werkzeug 0.12.2 (/Users/ncrmro/.virtualenvs/hs-events-venv/lib/python3.5/site-packages), Requirement.parse('Werkzeug==0.12'), {'zappa'})
 Calling update for stage sync_api..
 Downloading and installing dependencies..
@@ -60,4 +62,4 @@ Your updated Zappa deployment is live!: https://09gi23fqn1.execute-api.us-east-1
 ```
 
 Check the url. For instance
-/api/groups will return the meetup groups
+/api/groups will return the meetup groups for instance
