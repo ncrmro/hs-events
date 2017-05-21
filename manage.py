@@ -26,8 +26,6 @@ def get_sync():
     return tup_client.get_access().text
 
 
-default_query =.strip()
-
 app.add_url_rule('/graphql',
                  view_func=GraphQLView.as_view('graphql', schema=schema,
                                                graphiql=True))
