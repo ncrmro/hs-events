@@ -42,3 +42,22 @@ AWS Secret Access Key: bar
 `zappa update sync_api`
 
 `zappa deploy production`
+
+```
+ zappa update sync_api
+(Werkzeug 0.12.2 (/Users/ncrmro/.virtualenvs/hs-events-venv/lib/python3.5/site-packages), Requirement.parse('Werkzeug==0.12'), {'zappa'})
+Calling update for stage sync_api..
+Downloading and installing dependencies..
+Packaging project as zip..
+Uploading dev-sync-hs-events-api-sync-api-1495380831.zip (8.1MiB)..
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8.47M/8.47M [00:01<00:00, 4.56MB/s]
+Updating Lambda function code..
+Updating Lambda function configuration..
+Uploading dev-sync-hs-events-api-sync-api-template-1495380844.json (1.7KiB)..
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1.70K/1.70K [00:00<00:00, 6.33KB/s]
+Deploying API Gateway..
+Your updated Zappa deployment is live!: https://09gi23fqn1.execute-api.us-east-1.amazonaws.com/api
+```
+
+Check the url. For instance
+/api/groups will return the meetup groups

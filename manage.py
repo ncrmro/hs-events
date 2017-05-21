@@ -4,9 +4,10 @@ mup_client = MeetupAdapterClient()
 tup_client = TeamUpClient()
 
 
-@app.route('/')
-def hello_world():
-    return 'Hello, World!'
+@app.route('/', methods=['GET', 'POST'])
+def lambda_handler(event=None, context=None):
+    return 'hello from Flask!'
+
 
 
 @app.route('/groups')
