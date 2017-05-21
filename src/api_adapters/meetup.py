@@ -1,7 +1,7 @@
 import requests
-from src.adapter import BaseClientAdapter
 
 from src import settings
+from src.api_adapters import BaseClientAdapter
 
 
 class MeetupClient(BaseClientAdapter):
