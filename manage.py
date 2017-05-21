@@ -19,6 +19,10 @@ def get_calendars():
     return tup_client.get_access().text
 
 
+def get_sync():
+    return tup_client.get_access().text
+
+
 @app.cli.command()
 def initdb():
     """Initialize the database."""

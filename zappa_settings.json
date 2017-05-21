@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "project_name": "dev_sync_hs_events",
+    "aws_region": "us-east-1",
+    "profile_name": "default",
+    "s3_bucket": "hs-events-dev",
+    "events": [
+      {
+        "function": "src.get_sync",
+        "expression": "rate(1 minute)"
+      }
+    ],
+    "use_precompiled_packages": true
+  }
+}
