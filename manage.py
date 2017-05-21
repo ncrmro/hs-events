@@ -1,4 +1,6 @@
-from src import app, db, models, MeetupAdapterClient, TeamUpClient
+from flask_graphql import GraphQLView
+
+from src import app, MeetupAdapterClient, TeamUpClient, init_db, schema, db
 
 mup_client = MeetupAdapterClient()
 tup_client = TeamUpClient()
@@ -24,15 +26,22 @@ def get_sync():
     return tup_client.get_access().text
 
 
+app.add_url_rule('/graphql',
+                 view_func=GraphQLView.as_view('graphql', schema=schema,
+                                               graphiql=True))
+
+
 @app.cli.command()
 def initdb():
     """Initialize the database."""
-    db.create_all()
+    init_db()
 
-    example_mup = models.MeetupGroup(meetup_group_id='1')
-    example_tup = models.TeamUpCalendar(team_group_id='1',
-                                        meetup_group=example_mup)
 
-    db.session.add(example_mup)
-    db.session.add(example_tup)
-    db.session.commit()
+@app.teardown_appcontext
+def shutdown_session(exception=None):
+    db.remove()
+
+
+if __name__ == '__main__':
+    init_db()
+    app.run()

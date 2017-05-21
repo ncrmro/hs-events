@@ -3,7 +3,6 @@ from os.path import join, dirname
 
 from dotenv import load_dotenv
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 
 BASE_DIR = dirname(dirname(__file__))
 
@@ -17,6 +16,3 @@ TEAMUP_API_KEY = env.get("TEAMUP_API_KEY")
 MEETUP_API_KEY = env.get("MEETUP_API_KEY")
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)

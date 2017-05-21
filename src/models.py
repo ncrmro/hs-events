@@ -1,24 +1,29 @@
-from src.settings import db
+from sqlalchemy import Column, ForeignKey, Integer, String
+from sqlalchemy.orm import backref, relationship
+
+from src.database import Base
 
 
-class MeetupGroup(db.Model):
+class MeetupGroup(Base):
     __tablename__ = 'meetup_group'
-    id = db.Column(db.Integer, primary_key=True)
-    meetup_group_id = db.Column(db.String(80), unique=True)
+    id = Column(Integer, primary_key=True)
+    name = Column(String(80), unique=True)
+    meetup_group_id = Column(String(80), unique=True)
 
-    def __init__(self, meetup_group_id):
+    def __init__(self, name, meetup_group_id):
+        self.name = name
         self.meetup_group_id = meetup_group_id
 
 
-class TeamUpCalendar(db.Model):
+class TeamUpCalendar(Base):
     __tablename__ = 'teamup_calendar'
-    id = db.Column(db.Integer, primary_key=True)
-    team_group_id = db.Column(db.String(80), unique=True)
-    meetup_group_id = db.Column(db.Integer, db.ForeignKey('meetup_group.id'),
+    id = Column(Integer, primary_key=True)
+    team_group_id = Column(String(80), unique=True)
+    meetup_group_id = Column(Integer, ForeignKey('meetup_group.id'),
                                 unique=True)
-    meetup_group = db.relationship(
+    meetup_group = relationship(
             'MeetupGroup',
-            backref=db.backref('meetup_group', uselist=False)
+            backref=backref('meetup_group', uselist=False)
     )
 
     def __init__(self, team_group_id, meetup_group):
