@@ -10,6 +10,9 @@ Create and activate virtualenv
 Install requirements
 `pip3 install -r requirements.txt`
 
+Create and stage databse
+`export FLASK_APP=manage.py && flask initdb`
+
 Start the flask server
-`export FLASK_APP=hello.py flask run`
+`export FLASK_APP=manage.py && flask run`
 
